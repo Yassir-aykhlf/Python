@@ -1,9 +1,3 @@
-# 01_object_model/theory_fluent_examples.py
-"""
-Reference examples from Fluent Python (Ch 1, 6, 22).
-Topics: Aliasing, __repr__ vs __str__, and dynamic dicts.
-"""
-
 class TwilightBus:
     """
     Example from Ch 6: The danger of Aliasing.
