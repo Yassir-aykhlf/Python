@@ -33,6 +33,8 @@ def trading_bot() -> Generator[None, int, None]:
                 if price > 150:
                     print(f"Price ${price}: Spike detected, selling...")
                     state = "WATCHING"
+                else:
+                    print(f"Price ${price}, waiting for a spike...")
     except GeneratorExit:
         print("Bot Exiting...")
 
