@@ -1,9 +1,6 @@
 """Metaclass that converts method names to uppercase."""
 
-
 class UpperCaseMeta(type):
-    """Metaclass that method names to uppercase in the class namespace."""
-
     def __new__(mcs, name: str, bases: tuple[type, ...], namespace: dict):
         upper_namespace: dict = {}
         for key, val in namespace.items():
@@ -16,20 +13,9 @@ class UpperCaseMeta(type):
 
 
 if __name__ == "__main__":
+    class APIClient(metaclass=UpperCaseMeta):
+        def fetch_data(self):
+            return "Data fetched"
 
-    class Dummy(metaclass=UpperCaseMeta):
-        def method_one(self):
-            print("Method One")
-
-        def method_two(self):
-            print("Method Two")
-
-    d = Dummy()
-    print(d)
-    d.METHOD_ONE()
-    d.METHOD_TWO()
-
-    try:
-        d.method_one()
-    except AttributeError as e:
-        print(e)
+    client = APIClient()
+    print(client.FETCH_DATA())
